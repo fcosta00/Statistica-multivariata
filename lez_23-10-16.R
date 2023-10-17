@@ -38,9 +38,12 @@ hist_s <- ggplot(DOCwashing, aes(x=Score)) + geom_histogram(binwidth=0.5)
 
 hist_s <- hist_s + 
           theme(axis.text.x = element_text(color="red"),  # Cambia colore etichette asse x
-                axis.text.y = element_text(color="blue"))
+                axis.text.y = element_text(color="blue")) +
+          labs(x='Score', y='Frequenza')
+
 hist_s <- hist_s +
           scale_x_continuous(breaks = seq(0, 20, by = 2)) + #cambio i ticks e la frequenza degli assi
-          scale_y_continuous(breaks = seq(0, 20, by = 2)) 
+          scale_y_continuous(breaks = seq(0, 20, by = 2))
+          
 hist_s
 
