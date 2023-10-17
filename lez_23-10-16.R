@@ -50,6 +50,7 @@ hist_s
 
 
 # Esercizio 2 - punto 2 ------
+
 x <- DOCwashing[DOCwashing$Tempo == 1 & DOCwashing$Gruppo == 1,] #se si vuole estrarre il vettore prima, io non l'ho utilizzato ma ho fatto direttamente
 
 hist_s <- ggplot(DOCwashing[DOCwashing$Tempo == 1 & DOCwashing$Gruppo == 1,], aes(x=Score)) + geom_histogram(binwidth=0.5)
@@ -80,4 +81,9 @@ stat.desc(DOCwashing[DOCwashing$Tempo == 1 & DOCwashing$Gruppo == 1,]$Score, nor
 
 shapiro.test(DOCwashing[DOCwashing$Tempo == 1 & DOCwashing$Gruppo == 1,]$Score) #sono distribuiti normalmente
 
- 
+
+# Per farlo con tutti i gruppi si può utilizzare il comando by
+by( DOCwashing$Score, INDICES = list(DOCwashing$Gruppo, DOCwashing$Tempo), FUN = stat.desc, norm = TRUE)
+by( DOCwashing$Score, INDICES = list(DOCwashing$Gruppo, DOCwashing$Tempo), FUN = shapiro.test)
+
+
