@@ -50,7 +50,7 @@ hist_s
 
 
 # Esercizio 2 - punto 2 ------
-x <- DOCwashing[DOCwashing$Tempo == 1 & DOCwashing$Gruppo == 1,]
+x <- DOCwashing[DOCwashing$Tempo == 1 & DOCwashing$Gruppo == 1,] #se si vuole estrarre il vettore prima, io non l'ho utilizzato ma ho fatto direttamente
 
 hist_s <- ggplot(DOCwashing[DOCwashing$Tempo == 1 & DOCwashing$Gruppo == 1,], aes(x=Score)) + geom_histogram(binwidth=0.5)
 
@@ -68,3 +68,16 @@ hist_1 <- ggplot(DOCwashing[DOCwashing$Tempo == 1 & DOCwashing$Gruppo == 0,], ae
         labs(x='Score', y='Frequenza') + 
         theme_minimal()
         
+
+
+# Esercizio 3 - punto 3 -----
+
+qqnorm(DOCwashing[DOCwashing$Tempo == 1 & DOCwashing$Gruppo == 1,]$Score  )
+qqline(DOCwashing[DOCwashing$Tempo == 1 & DOCwashing$Gruppo == 1,]$Score, col="red")
+
+library(pastecs)
+stat.desc(DOCwashing[DOCwashing$Tempo == 1 & DOCwashing$Gruppo == 1,]$Score, norm= TRUE) #sono distribuiti normalmente
+
+shapiro.test(DOCwashing[DOCwashing$Tempo == 1 & DOCwashing$Gruppo == 1,]$Score) #sono distribuiti normalmente
+
+ 
