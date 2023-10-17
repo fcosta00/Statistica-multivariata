@@ -54,15 +54,17 @@ x <- DOCwashing[DOCwashing$Tempo == 1 & DOCwashing$Gruppo == 1,]
 
 hist_s <- ggplot(DOCwashing[DOCwashing$Tempo == 1 & DOCwashing$Gruppo == 1,], aes(x=Score)) + geom_histogram(binwidth=0.5)
 
-hist <- ggplot(DOCwashing[DOCwashing$Tempo == 1 & DOCwashing$Gruppo == 1,], aes(x=Score)) + 
-        geom_histogram(binwidth=0.5, fill="blue", color='black', linetype="dashed") +
+hist_0 <- ggplot(DOCwashing[DOCwashing$Tempo == 1 & DOCwashing$Gruppo == 1,], aes(x=Score)) + 
+        geom_histogram(binwidth=0.5, fill="#98F5FF", color='black', linetype="dashed") +
         scale_x_continuous(breaks = seq(0, 20, by = 2)) + #cambio i ticks e la frequenza degli assi
-        scale_y_continuous(breaks = seq(0, 20, by = 2))
-        labs(x='Score', y='Frequenza')
+        scale_y_continuous(breaks = seq(0, 20, by = 2)) +
+        labs(x='Score', y='Frequenza') + 
+        theme_minimal()
 
-hist <- ggplot(DOCwashing[DOCwashing$Tempo == 1 & DOCwashing$Gruppo == 0,], aes(x=Score)) + 
-        geom_histogram(binwidth=0.5, fill="blue", color='black', linetype="dashed") +
+hist_1 <- ggplot(DOCwashing[DOCwashing$Tempo == 1 & DOCwashing$Gruppo == 0,], aes(x=Score)) + 
+        geom_histogram(binwidth=0.5, fill="#98F5FF", color='black', linetype="dashed") +
         scale_x_continuous(breaks = seq(0, 20, by = 2)) + #cambio i ticks e la frequenza degli assi
-        scale_y_continuous(breaks = seq(0, 20, by = 2))
-        labs(x='Score', y='Frequenza')
+        scale_y_continuous(breaks = seq(0, 20, by = 2)) +
+        labs(x='Score', y='Frequenza') + 
+        theme_minimal()
         
