@@ -28,3 +28,20 @@ table(DOCwashing[DOCwashing$Tempo == 1, c(2,3)])
 table(DOCwashing[, c(4,5)]) # versione meno complicata ->  table(DOCwashing$Tempo, DOCwashing$Score])
 table(DOCwashing[DOCwashing$Gruppo == 1, c(4,5)])
 
+
+#Esercizio 2 - punto 1 -------
+
+library(ggplot2)
+hist_s <- ggplot(DOCwashing, aes(x=Score)) + geom_histogram() #la distribuzione si mostra divisa in due pseudo normali appaiate
+hist_s
+
+hist_s <- ggplot(DOCwashing, aes(x=Score)) + geom_histogram(binwidth=0.5)
+
+hist_s <- hist_s + 
+          theme(axis.text.x = element_text(color="red"),  # Cambia colore etichette asse x
+                axis.text.y = element_text(color="blue"))
+hist_s <- hist_s +
+          scale_x_continuous(breaks = seq(0, 20, by = 2)) +
+          scale_y_continuous(breaks = seq(0, 20, by = 2)) 
+hist_s
+
