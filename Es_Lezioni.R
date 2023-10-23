@@ -86,4 +86,10 @@ shapiro.test(DOCwashing[DOCwashing$Tempo == 1 & DOCwashing$Gruppo == 1,]$Score) 
 by( DOCwashing$Score, INDICES = list(DOCwashing$Gruppo, DOCwashing$Tempo), FUN = stat.desc, norm = TRUE)
 by( DOCwashing$Score, INDICES = list(DOCwashing$Gruppo, DOCwashing$Tempo), FUN = shapiro.test)
 
-
+hist_total <- ggplot(DOCwashing, aes(x=Score)) + 
+  geom_histogram(binwidth=0.5, fill="#98F5FF", color='black', linetype="dashed") +
+  scale_x_continuous(breaks = seq(0, 20, by = 2)) + #cambio i ticks e la frequenza degli assi
+  scale_y_continuous(breaks = seq(0, 20, by = 2)) +
+  labs(x='Score', y='Frequenza') + 
+  facet_grid(DOCwashing$Gruppo ~ DOCwashing$Tempo ) +
+  theme_minimal()
