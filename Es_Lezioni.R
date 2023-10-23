@@ -96,8 +96,8 @@ hist_total <- ggplot(DOCwashing, aes(x=Score)) +
 
 # Esercizio 3 - punot 1 ----
 
-IQR(DOCwashing[ DOCwashing$Gruppo == 1,]$Score)
-summary(DOCwashing[ DOCwashing$Gruppo == 1,]$Score)
+IQR(DOCwashing[ DOCwashing$Tempo == 2 & DOCwashing$Gruppo == 1,]$Score)
+summary(DOCwashing[ DOCwashing$Tempo == 2 & DOCwashing$Gruppo == 1,]$Score)
 
 by( DOCwashing$Score, INDICES = list(DOCwashing$Gruppo, DOCwashing$Tempo), FUN = mean)
 by( DOCwashing$Score, INDICES = list(DOCwashing$Gruppo, DOCwashing$Tempo), FUN = sd)
@@ -105,4 +105,5 @@ by( DOCwashing$Score, INDICES = list(DOCwashing$Gruppo, DOCwashing$Tempo), FUN =
 by( DOCwashing$Score, INDICES = DOCwashing$Genere, FUN = var)
 
 library(plotrix)
-std.error(DOCwashing[ DOCwashing$Gruppo == 0,]$Score)
+std.error(DOCwashing[ DOCwashing$Tempo == 1 & DOCwashing$Gruppo == 0,]$Score)
+
