@@ -71,7 +71,7 @@ hist_1 <- ggplot(DOCwashing[DOCwashing$Tempo == 1 & DOCwashing$Gruppo == 0,], ae
         
 
 
-# Esercizio 3 - punto 3 -----
+# Esercizio 2 - punto 3 -----
 
 qqnorm(DOCwashing[DOCwashing$Tempo == 1 & DOCwashing$Gruppo == 1,]$Score  )
 qqline(DOCwashing[DOCwashing$Tempo == 1 & DOCwashing$Gruppo == 1,]$Score, col="red")
@@ -93,3 +93,16 @@ hist_total <- ggplot(DOCwashing, aes(x=Score)) +
   labs(x='Score', y='Frequenza') + 
   facet_grid(DOCwashing$Gruppo ~ DOCwashing$Tempo ) +
   theme_minimal()
+
+# Esercizio 3 - punot 1 ----
+
+IQR(DOCwashing[ DOCwashing$Gruppo == 1,]$Score)
+summary(DOCwashing[ DOCwashing$Gruppo == 1,]$Score)
+
+by( DOCwashing$Score, INDICES = list(DOCwashing$Gruppo, DOCwashing$Tempo), FUN = mean)
+by( DOCwashing$Score, INDICES = list(DOCwashing$Gruppo, DOCwashing$Tempo), FUN = sd)
+
+by( DOCwashing$Score, INDICES = DOCwashing$Genere, FUN = var)
+
+library(plotrix)
+std.error(DOCwashing[ DOCwashing$Gruppo == 0,]$Score)
